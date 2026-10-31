@@ -1,0 +1,55 @@
+"""
+Script to generate a comprehensive, publication-quality Codebase & Architecture PDF for IssueLens.
+Uses fpdf2 to compile all source files, schemas, architecture diagrams, and test results.
+"""
+import os
+import sys
+from datetime import datetime
+from fpdf import FPDF
+PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
+# Unicode character replacements for standard PDF core fonts (Helvetica / Courier)
+CHAR_REPLACEMENTS = {
+    "🔍": "[SEARCH]",
+    "🤖": "[AI]",
+    "🧠": "[BRAIN]",
+    "⚡": "[BOLT]",
+    "🚀": "[LAUNCH]",
+    "📌": "[PIN]",
+    "💡": "[TIP]",
+    "🛠️": "[TOOLS]",
+    "🧪": "[TEST]",
+    "✅": "[OK]",
+    "❌": "[FAIL]",
+    "⚠️": "[WARN]",
+    "🛑": "[STOP]",
+    "📦": "[REPO]",
+    "📁": "[DIR]",
+    "📄": "[FILE]",
+    "📊": "[CHART]",
+    "🏷️": "[TAG]",
+    "⭐": "*",
+    "🍴": "[FORK]",
+    "💻": "[CODE]",
+    "●": "*",
+    "✓": "v",
+    "—": "--",
+    "–": "-",
+    "‘": "'",
+    "’": "'",
+    "“": '"',
+    "”": '"',
+    "…": "...",
+    "👉": "->",
+    "↗": "->",
+    "•": "*",
+}
+def clean_text_for_pdf(text: str) -> str:
+    """Replaces Unicode symbols that are outside standard Latin-1 encoding."""
+    for k, v in CHAR_REPLACEMENTS.items():
+        text = text.replace(k, v)
+    # Encode to latin-1 with replacement fallback
+    return text.encode("latin-1", "replace").decode("latin-1")
+class IssueLensPDF(FPDF):
+    def __init__(self):
+        super().__init__(orientation="P", unit="mm", format="A4")
+        self.set_auto_page_break(auto=True, margin=15)
