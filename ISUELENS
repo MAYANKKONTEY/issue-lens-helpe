@@ -1,0 +1,14 @@
++---------------------------------------------------------------------------------------+
+|  IssueLens — Hackathon MVP Codebase & Architecture Specification (68 Pages)           |
++---------------------------------------------------------------------------------------+
+|  • Page 1:   Cover Page with Executive Summary, Model Metadata & Licensing            |
+|  • Page 2:   System Architecture Principles, Grounding Rules & File Index             |
+|  • Pages 3-10:   github_client.py  (REST API Client, Trees API, Rate Limits)          |
+|  • Pages 11-17:  analyzer.py       (Deterministic Tokenizer, Path Ranking, Snippets)  |
+|  • Pages 18-28:  ai_engine.py      (Gemma 4 Pipeline, Pydantic v2 Schemas, Fallback) |
+|  • Pages 29-39:  sample_data.py    (Authentic Benchmark Datasets & Fixtures)         |
+|  • Pages 40-60:  app.py            (Streamlit Developer Dashboard & Interactive UI)   |
+|  • Pages 61-66:  tests/test_suite.py (Automated 16-Point QA Regression Test Suite)    |
+|  • Page 67:  requirements.txt  (Minimal Pinned Dependencies)                          |
+|  • Page 68:  Verification Evidence & Live GitHub API Validation Results (16/16 Pass)  |
++---------------------------------------------------------------------------------------+
